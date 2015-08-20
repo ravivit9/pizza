@@ -2,9 +2,16 @@
 
 angular.module('pizzaApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+      $scope.pizza = {
+        "cheeseBites" : {
+          "image" : "cheese-bites-base.jpg",
+          "sizes": {
+            "large" : [
+              {inches:14, "slices": 8}
+              ]
+          }
+        }
+      }
+
+
   });

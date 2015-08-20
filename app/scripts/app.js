@@ -13,10 +13,13 @@
     $stateProvider
       .state('index', {
         url: '/',
-        templateUrl: 'views/main.html',
+        templateUrl: './views/main.html',
         controller:'MainCtrl'
       })
-  })
+
+      $urlRouterProvider.otherwise('index');
+
+    });
 
 
 
