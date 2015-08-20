@@ -15,9 +15,9 @@
         url: '/',
         templateUrl: './views/main.html',
         controller:'MainCtrl'
-      })
+      });
 
-      $urlRouterProvider.otherwise('index');
+      $urlRouterProvider.otherwise('/');
 
     });
 

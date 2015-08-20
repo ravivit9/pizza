@@ -1,10 +1,48 @@
 
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <h1>Pizza</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>
+        Select Your Pizza
+      </h2>
+      <div class="form-group">
+        <div class="radio"  ng-repeat="pizza in pizzaData">
+          <label>
+            <input type="radio" ng-model="formData.pizza" ng-click="getPizzaDeatils()" name="pizza" value="{{pizza.id}}" >
+            {{pizza.name}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <div ng-show="formData.pizza"  class="col-md-3">
+      <h2>Select Size</h2>
+      <img class="img-rounded " src="./images/{{selectedPizzaDetails.image}}">
+      <div class="form-group">
+        <div class="radio"  ng-repeat="sizes in selectedPizzaDetails.sizes">
+          <div class="radio"  ng-repeat="size in sizes">
+          <label>
+            <input type="radio" ng-model="formData.size.price" ng-click="showTotal()" name="size" value="{{size.price}}" selected="true" >
+           {{size.slices}} Slices / {{size.inches}} Inches
+          </label>
+        </div>
+          <input type="number" ng-model="formData.pizzaNumbers"  placeholder="How Many Pizza">
+        </div>
+      </div>
+
+    </div>
+    <div ng-hide="!totalVisible" class="col-md-4">
+      <h1>Total</h1>
+      <h3>
+        Total cost for {{formData.pizzaNumbers}} {{selectedPizzaDetails.name}} pizza is {{selectedPizzaDetails.currency }} {{formData.pizzaNumbers * formData.size.price}}
+      </h3>
+    </div>
+  </div>
+  <div ng-show="formData.size.price">
+    <h2>Final JSON Data Set</h2>
+    <pre>{{selectedPizzaDetails}}</pre>
+  </div>
 </div>
